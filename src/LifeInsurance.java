@@ -3,6 +3,10 @@ public class LifeInsurance extends Insurance{
     private double faceValue;
 
     //Constructor for AutoInsurance class
+    public LifeInsurance(){
+        super();
+    }
+
     public LifeInsurance(String policyNumber, String policyOwner, double yearlyPremium, String beneficiary, double faceValue){
         super(policyNumber, policyOwner, yearlyPremium);
         setBeneficiary(beneficiary);

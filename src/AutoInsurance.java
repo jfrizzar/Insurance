@@ -4,6 +4,10 @@ public class AutoInsurance extends Insurance{
     private String model;
 
     //Constructor for AutoInsurance class
+    public AutoInsurance(){
+        super();
+    }
+
     public AutoInsurance(String policyNumber, String policyOwner, double yearlyPremium, String vin, String make, String model){
         super(policyNumber, policyOwner, yearlyPremium);
         setVin(vin);

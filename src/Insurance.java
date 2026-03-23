@@ -2,9 +2,15 @@ public class Insurance {
     private String policyNumber;
     private String policyOwner;
     private double yearlyPremium;
+    private static int policyCount;
 
     //Constructor for our insurance class
+    public Insurance(){
+        policyCount++;
+    }
+
     public Insurance(String policyNumber, String policyOwner, double yearlyPremium){
+        this();
         setPolicyNumber(policyNumber);
         setPolicyOwner(policyOwner);
         setYearlyPremium(yearlyPremium);
@@ -23,6 +29,10 @@ public class Insurance {
         return this.yearlyPremium;
     }
 
+    public static int getPolicyCount(){
+        return Insurance.policyCount;
+    }
+
     //Set methods
     public void setPolicyNumber(String policyNumber){
         this.policyNumber = policyNumber;
@@ -36,9 +46,14 @@ public class Insurance {
         this.yearlyPremium = yearlyPremium;
     }
 
+    //Special purpose methods
     public String toString(){
         return "The policy number is: " + this.getPolicyNumber() + "\n" +
         "The policy owner is: " + this.getPolicyOwner() + "\n" +
         "The yearly premium is: " + this.getYearlyPremium() + "\n";
+    }
+
+    public static void decrementCount(){
+        policyCount--;
     }
 }

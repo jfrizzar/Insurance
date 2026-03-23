@@ -1,10 +1,14 @@
 public class HomeInsurance extends Insurance{
     private String address;
-    private int yearBuilt;
+    private String yearBuilt;
     private double deductible;
 
     //Constructor for AutoInsurance class
-    public HomeInsurance(String policyNumber, String policyOwner, double yearlyPremium, String address, int yearBuilt, double deductible){
+    public HomeInsurance(){
+        super();
+    }
+
+    public HomeInsurance(String policyNumber, String policyOwner, double yearlyPremium, String address, String yearBuilt, double deductible){
         super(policyNumber, policyOwner, yearlyPremium);
         setAddress(address);
         setYearBuilt(yearBuilt);
@@ -16,7 +20,7 @@ public class HomeInsurance extends Insurance{
         return this.address;
     }
 
-    public int getYearBuilt(){
+    public String getYearBuilt(){
         return this.yearBuilt;
     }
 
@@ -29,7 +33,7 @@ public class HomeInsurance extends Insurance{
         this.address = address;
     }
 
-    public void setYearBuilt(int yearBuilt){
+    public void setYearBuilt(String yearBuilt){
         this.yearBuilt = yearBuilt;
     }
 
