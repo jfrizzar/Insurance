@@ -52,7 +52,7 @@ public class HomeInsurance extends Insurance{
         return super.toString() +
         "The address is: " + this.getAddress() + "\n" +
         "The year built is: " + this.getYearBuilt() + "\n" +
-        "The deductible is: " + this.getDeductible() + "\n";
+        "The deductible is: $" + String.format("%.2f", this.getDeductible()) + "\n";
     }
 
 }

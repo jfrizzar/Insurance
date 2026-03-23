@@ -59,7 +59,7 @@ public class Insurance {
     public String toString(){
         return "The policy number is: " + this.getPolicyNumber() + "\n" +
         "The policy owner is: " + this.getPolicyOwner() + "\n" +
-        "The yearly premium is: " + this.getYearlyPremium() + "\n";
+        "The yearly premium is: $" + String.format("%.2f", this.getYearlyPremium()) + "\n";
     }
 
     public static void decrementCount(){

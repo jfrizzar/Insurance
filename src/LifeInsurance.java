@@ -38,7 +38,7 @@ public class LifeInsurance extends Insurance{
     public String toString(){
         return super.toString() +
         "The beneficiary is: " + this.getBeneficiary() + "\n" +
-        "The face value is: " + this.getFaceValue() + "\n";
+        "The face value is: $" + String.format("%.2f", this.getFaceValue()) + "\n";
     }
 
 }
