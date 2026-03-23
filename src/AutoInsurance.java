@@ -30,6 +30,9 @@ public class AutoInsurance extends Insurance{
 
     //Set methods
     public void setVin(String vin){
+        if (vin.length() != 7){
+            throw new IllegalArgumentException("The vehicle VIN must be 7 characters long.");
+        }
         this.vin = vin;
     }
 

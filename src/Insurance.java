@@ -35,14 +35,23 @@ public class Insurance {
 
     //Set methods
     public void setPolicyNumber(String policyNumber){
+        if (policyNumber.isEmpty() || policyNumber.length() != 5){
+            throw new IllegalArgumentException("The policy must be 5 characters long.");
+        }
         this.policyNumber = policyNumber;
     }
 
     public void setPolicyOwner(String policyOwner){
+        if (policyOwner.isEmpty()){
+            throw new IllegalArgumentException("The policy owner cannot be blank.");
+        }
         this.policyOwner = policyOwner;
     }
 
     public void setYearlyPremium(double yearlyPremium){
+        if (yearlyPremium < 0){
+            throw new IllegalArgumentException("The yearly premium is must be positive.");
+        }
         this.yearlyPremium = yearlyPremium;
     }
 

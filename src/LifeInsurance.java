@@ -28,6 +28,9 @@ public class LifeInsurance extends Insurance{
     }
 
     public void setFaceValue(double faceValue){
+        if (faceValue < 0){
+            throw new IllegalArgumentException("The face value must be positive.");
+        }
         this.faceValue = faceValue;
     }
 

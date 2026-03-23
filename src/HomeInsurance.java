@@ -34,10 +34,16 @@ public class HomeInsurance extends Insurance{
     }
 
     public void setYearBuilt(String yearBuilt){
+        if (Integer.parseInt(yearBuilt) < 1800 || Integer.parseInt(yearBuilt) > 2022){
+            throw new IllegalArgumentException("The year built must be between 1800 and 2022.");
+        }
         this.yearBuilt = yearBuilt;
     }
 
     public void setDeductible(double deductible){
+        if (deductible < 0){
+            throw new IllegalArgumentException("The deductible must be positive");
+        }
         this.deductible = deductible;
     }
 

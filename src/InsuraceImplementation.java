@@ -78,7 +78,7 @@ public class InsuraceImplementation {
         }
     }
 
-    //Add a policy method
+    //Add policy method
     public static Insurance addPolicy(){
         String input = JOptionPane.showInputDialog("What kind of insurance policy would you like to add?\n" +
         "(1) Auto Insurance Policy\n" +
@@ -94,6 +94,7 @@ public class InsuraceImplementation {
         
         //Create Auto Insurance Object
         if (option == 1){
+            try{         
             String policyNumber = prompt("Enter a 5 character policy number.");
             String policyOwner = prompt("Enter the first and last name of the policy owner.");
             String policyPremium = prompt("Enter the yearly premium of this policy.");
@@ -101,6 +102,7 @@ public class InsuraceImplementation {
             String carMake = prompt("Enter the make.");
             String carModel = prompt("Enter the model.");
 
+            //Check if anything has been entered at all
             if (policyNumber == null || policyOwner == null || policyPremium == null || vinNumber == null
                 || carMake == null || carModel == null){
                     AutoInsurance.decrementCount();
@@ -108,7 +110,7 @@ public class InsuraceImplementation {
                     return null;
                 }
             
-            try{
+
                 double premium = Double.parseDouble(policyPremium);
 
                 AutoInsurance currentAutoPolicy = new AutoInsurance();
@@ -121,8 +123,13 @@ public class InsuraceImplementation {
                 JOptionPane.showMessageDialog(null, "Auto Policy Succesfully Created.");
                 return currentAutoPolicy;
 
-            }catch (NumberFormatException nfe){
+            }
+            catch (NumberFormatException nfe){
                 JOptionPane.showMessageDialog(null, "Decimal input expected.");
+                return null;
+            }catch (IllegalArgumentException iae){
+                JOptionPane.showMessageDialog(null, iae.getMessage());
+                AutoInsurance.decrementCount();
                 return null;
             }
         }
@@ -160,6 +167,10 @@ public class InsuraceImplementation {
             }catch (NumberFormatException nfe){
                 JOptionPane.showMessageDialog(null, "Decimal input expected.");
                 return null;
+            }catch (IllegalArgumentException iae){
+                JOptionPane.showMessageDialog(null, iae.getMessage());
+                AutoInsurance.decrementCount();
+                return null;
             }
         }
         //Create Life Insurance Object
@@ -193,12 +204,15 @@ public class InsuraceImplementation {
             }catch (NumberFormatException nfe){
                 JOptionPane.showMessageDialog(null, "Decimal input expected.");
                 return null;
+            }catch (IllegalArgumentException iae){
+                JOptionPane.showMessageDialog(null, iae.getMessage());
+                Insurance.decrementCount();
             }
     }
     return null;
 }
     
-
+    //Remove policy method
     public static Insurance[] removePolicy(Insurance[] InsuranceArray){
         String allPolicies = "";
         int option = 0;
@@ -235,6 +249,7 @@ public class InsuraceImplementation {
         return InsuranceArray;
     }
 
+    //View policy method
     public static void viewPolicy(Insurance[] InsuranceArray, int MAX_POLICIES){
         String allPolicies = "";
 
@@ -249,6 +264,7 @@ public class InsuraceImplementation {
         JOptionPane.showMessageDialog(null, allPolicies);
     }
 
+    //String prompt helper
     private static String prompt(String message){
         String input = JOptionPane.showInputDialog(message);
         //Check if input is null or empty
