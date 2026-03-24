@@ -59,12 +59,14 @@ public class InsuraceImplementation {
 
     //Customer choice function
     public static int customerChoice(){
-        String input = JOptionPane.showInputDialog("Frizzar Insurance Company Selection Menu\n" +
-        "Please one of the following options\n\n" +
-        "(1) Add a new policy\n" +
-        "(2) Remove a policy\n" +
-        "(3) View all policies\n" +
-        "(4) Quit Program");
+        String input = JOptionPane.showInputDialog("""
+                                                   Frizzar Insurance Company Selection Menu
+                                                   Please one of the following options
+                                                   
+                                                   (1) Add a new policy
+                                                   (2) Remove a policy
+                                                   (3) View all policies
+                                                   (4) Quit Program""");
 
         //If user selects cancel
         if (input == null){
@@ -91,10 +93,12 @@ public class InsuraceImplementation {
     //Add a policy method
     public static Insurance addPolicy(){
         int option = -1;
-        String input = JOptionPane.showInputDialog("What kind of insurance policy would you like to add?\n" +
-        "(1) Auto Insurance Policy\n" +
-        "(2) Home Insurance Policy\n" +
-        "(3) Life Insurance Policy\n");
+        String input = JOptionPane.showInputDialog("""
+                                                   What kind of insurance policy would you like to add?
+                                                   (1) Auto Insurance Policy
+                                                   (2) Home Insurance Policy
+                                                   (3) Life Insurance Policy
+                                                   """);
 
         //If user selects cancel
         if (input == null){
@@ -118,7 +122,7 @@ public class InsuraceImplementation {
         if (option == 1){
             try{         
             String policyNumber = prompt("Enter a 5 character policy number.");
-            String policyOwner = prompt("Enter the first and last name of the policy owner.");
+            String policyOwner = prompt("Enter the full name of the policy owner.");
             String policyPremium = prompt("Enter the yearly premium of this policy.");
             String vinNumber = prompt("Enter the VIN number.");
             String carMake = prompt("Enter the make.");
@@ -160,7 +164,7 @@ public class InsuraceImplementation {
         //Create home insurance object
         else if (option == 2){
             String policyNumber = prompt("Enter a 5 character policy number.");
-            String policyOwner = prompt("Enter the first and last name of the policy owner.");
+            String policyOwner = prompt("Enter the full name of the policy owner.");
             String policyPremium = prompt("Enter the yearly premium of this policy.");
             String address = prompt("Enter the address.");
             String yearBuilt = prompt("Enter the year built.");
@@ -201,7 +205,7 @@ public class InsuraceImplementation {
         //Create life insurance object
         else if (option == 3){
             String policyNumber = prompt("Enter a 5 character policy number.");
-            String policyOwner = prompt("Enter the first and last name of the policy owner.");
+            String policyOwner = prompt("Enter the full name of the policy owner.");
             String policyPremium = prompt("Enter the yearly premium of this policy.");
             String beneficiary = prompt("Enter a beneficiary.");
             String faceValueString = prompt("Enter the face value.");
